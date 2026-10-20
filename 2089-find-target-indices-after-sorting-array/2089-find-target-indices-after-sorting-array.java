@@ -1,21 +1,18 @@
+
+import java.util.*;
+
 class Solution {
     public List<Integer> targetIndices(int[] nums, int target) {
-        int lesser = 0;
-        int same = 0;
-        
-        for (int x : nums) {
-            if (x < target) {
-                lesser++;
-            } else if (x == target) {
-                same++;
+        Arrays.sort(nums);
+
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                result.add(i);
             }
         }
-        
-        List<Integer> ans = new ArrayList<>();
-        for (int i = lesser; i < lesser + same; i++) {
-            ans.add(i);
-        }
-        
-        return ans;
+
+        return result;
     }
 }
